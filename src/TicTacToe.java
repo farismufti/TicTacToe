@@ -2,6 +2,35 @@ import java.util.Scanner;
 
 public class TicTacToe {
 
+    public static void main(String[] args) {
+
+        char[][] gameBoard = {{' ', '|', ' ', '|', ' '},
+                {'-', '+', '-', '+', '-'},
+                {' ', '|', ' ', '|', ' '},
+                {'-', '+', '-', '+', '-'},
+                {' ', '|', ' ', '|', ' '}};
+
+        printGameBoard(gameBoard);
+
+        while(true) {
+
+
+            Scanner input1 = new Scanner(System.in);
+            System.out.println("Player 1, enter your placement (1-9): ");
+            int player1Position = input1.nextInt();
+            playMove(gameBoard, player1Position, "Player 1");
+            printGameBoard(gameBoard);
+
+            Scanner input2 = new Scanner(System.in);
+            System.out.println("Player 2, enter your placement (1-9): ");
+            int player2Position = input2.nextInt();
+            playMove(gameBoard, player2Position, "Player 2");
+            printGameBoard(gameBoard);
+        }
+
+
+    }
+
     public static void printGameBoard(char[][] gameBoard) {
 
         for(char[] row : gameBoard) {
@@ -14,12 +43,8 @@ public class TicTacToe {
         }
     }
 
-    public static void playMove(char[][] gameBoard) {
-
-        Scanner input = new Scanner(System.in);
-        System.out.println("Enter your placement (1-9): ");
-        int position = input.nextInt();
-
+    public static void playMove(char[][] gameBoard, int position, String player) {
+        
         switch(position) {
 
             case 1:
@@ -58,19 +83,5 @@ public class TicTacToe {
                 gameBoard[4][4] = 'X';
                 break;
         }
-
-        printGameBoard(gameBoard);
-    }
-
-    public static void main(String[] args) {
-
-        char[][] gameBoard = {{' ', '|', ' ', '|', ' '},
-                              {'-', '+', '-', '+', '-'},
-                              {' ', '|', ' ', '|', ' '},
-                              {'-', '+', '-', '+', '-'},
-                              {' ', '|', ' ', '|', ' '}};
-
-        printGameBoard(gameBoard);
-        playMove(gameBoard);
     }
 }
