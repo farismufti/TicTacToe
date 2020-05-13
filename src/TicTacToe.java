@@ -2,32 +2,31 @@ import java.util.Scanner;
 
 public class TicTacToe {
 
+    static boolean noWinner = true;
+    String theWinner = "";
+
     public static void main(String[] args) {
 
         char[][] gameBoard = {{' ', '|', ' ', '|', ' '},
-                {'-', '+', '-', '+', '-'},
-                {' ', '|', ' ', '|', ' '},
-                {'-', '+', '-', '+', '-'},
-                {' ', '|', ' ', '|', ' '}};
+                              {'-', '+', '-', '+', '-'},
+                              {' ', '|', ' ', '|', ' '},
+                              {'-', '+', '-', '+', '-'},
+                              {' ', '|', ' ', '|', ' '}};
 
         printGameBoard(gameBoard);
 
-        while(true) {
+        while(noWinner) {
 
             Scanner input = new Scanner(System.in);
 
             System.out.println("Player 1, enter your placement (1-9): ");
             int player1Position = input.nextInt();
             playMove(gameBoard, player1Position, "Player 1");
-            printGameBoard(gameBoard);
 
             System.out.println("Player 2, enter your placement (1-9): ");
             int player2Position = input.nextInt();
             playMove(gameBoard, player2Position, "Player 2");
-            printGameBoard(gameBoard);
         }
-
-
     }
 
     public static void printGameBoard(char[][] gameBoard) {
@@ -91,6 +90,14 @@ public class TicTacToe {
             case 9:
                 gameBoard[4][4] = symbol;
                 break;
+        }
+        printGameBoard(gameBoard);
+    }
+
+    public static boolean checkForWinner(char[][] gameBoard) {
+
+        if(gameBoard[0][0] == 'X' && gameBoard[0][2] == 'X' & gameBoard[0][4] == 'X') {
+            noWinner = true;
         }
     }
 }
