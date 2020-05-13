@@ -14,16 +14,15 @@ public class TicTacToe {
 
         while(true) {
 
+            Scanner input = new Scanner(System.in);
 
-            Scanner input1 = new Scanner(System.in);
             System.out.println("Player 1, enter your placement (1-9): ");
-            int player1Position = input1.nextInt();
+            int player1Position = input.nextInt();
             playMove(gameBoard, player1Position, "Player 1");
             printGameBoard(gameBoard);
 
-            Scanner input2 = new Scanner(System.in);
             System.out.println("Player 2, enter your placement (1-9): ");
-            int player2Position = input2.nextInt();
+            int player2Position = input.nextInt();
             playMove(gameBoard, player2Position, "Player 2");
             printGameBoard(gameBoard);
         }
