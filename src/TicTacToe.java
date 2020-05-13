@@ -2,18 +2,6 @@ import java.util.Scanner;
 
 public class TicTacToe {
 
-    public static void main(String[] args) {
-
-        char[][] gameBoard = {{' ', '|', ' ', '|', ' '},
-                              {'-', '+', '-', '+', '-'},
-                              {' ', '|', ' ', '|', ' '},
-                              {'-', '+', '-', '+', '-'},
-                              {' ', '|', ' ', '|', ' '}};
-
-        printGameBoard(gameBoard);
-        playMove(gameBoard);
-    }
-
     public static void printGameBoard(char[][] gameBoard) {
 
         for(char[] row : gameBoard) {
@@ -47,30 +35,42 @@ public class TicTacToe {
                 break;
 
             case 4:
-                gameBoard[1][0] = 'X';
-                break;
-
-            case 5:
-                gameBoard[1][2] = 'X';
-                break;
-
-            case 6:
-                gameBoard[1][4] = 'X';
-                break;
-
-            case 7:
                 gameBoard[2][0] = 'X';
                 break;
 
-            case 8:
+            case 5:
                 gameBoard[2][2] = 'X';
                 break;
 
-            case 9:
+            case 6:
                 gameBoard[2][4] = 'X';
+                break;
+
+            case 7:
+                gameBoard[4][0] = 'X';
+                break;
+
+            case 8:
+                gameBoard[4][2] = 'X';
+                break;
+
+            case 9:
+                gameBoard[4][4] = 'X';
                 break;
         }
 
         printGameBoard(gameBoard);
+    }
+
+    public static void main(String[] args) {
+
+        char[][] gameBoard = {{' ', '|', ' ', '|', ' '},
+                              {'-', '+', '-', '+', '-'},
+                              {' ', '|', ' ', '|', ' '},
+                              {'-', '+', '-', '+', '-'},
+                              {' ', '|', ' ', '|', ' '}};
+
+        printGameBoard(gameBoard);
+        playMove(gameBoard);
     }
 }
