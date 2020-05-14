@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class TicTacToe {
 
     static boolean noWinner = true;
-    String theWinner = "";
+    static String theWinner = "";
 
     public static void main(String[] args) {
 
@@ -15,7 +15,7 @@ public class TicTacToe {
 
         printGameBoard(gameBoard);
 
-        while(noWinner) {
+        while(noWinner == true) {
 
             Scanner input = new Scanner(System.in);
 
@@ -27,6 +27,7 @@ public class TicTacToe {
             int player2Position = input.nextInt();
             playMove(gameBoard, player2Position, "Player 2");
         }
+        System.out.println("The winner is " + theWinner);
     }
 
     public static void printGameBoard(char[][] gameBoard) {
@@ -94,10 +95,101 @@ public class TicTacToe {
         printGameBoard(gameBoard);
     }
 
-    public static boolean checkForWinner(char[][] gameBoard) {
+    //Note: inefficient, does not give wanted results.
+    public static void checkForWinner(char[][] gameBoard) {
 
-        if(gameBoard[0][0] == 'X' && gameBoard[0][2] == 'X' & gameBoard[0][4] == 'X') {
-            noWinner = true;
+        if(gameBoard[0][0] == 'X' && gameBoard[0][2] == 'X' && gameBoard[0][4] == 'X') { //H1
+
+            noWinner = false;
+            theWinner = "Player 1";
+        }
+        else if(gameBoard[2][0] == 'X' && gameBoard[2][2] == 'X' && gameBoard[2][4] == 'X') { //H2
+
+            noWinner = false;
+            theWinner = "Player 1";
+        }
+
+        else if(gameBoard[4][0] == 'X' && gameBoard[4][2] == 'X' && gameBoard[4][4] == 'X') { //H3
+
+            noWinner = false;
+            theWinner = "Player 1";
+        }
+
+        else if(gameBoard[0][0] == 'X' && gameBoard[2][0] == 'X' && gameBoard[4][0] == 'X') { //V1
+
+            noWinner = false;
+            theWinner = "Player 1";
+        }
+
+        else if(gameBoard[0][2] == 'X' && gameBoard[2][2] == 'X' && gameBoard[4][2] == 'X') { //V2
+
+            noWinner = false;
+            theWinner = "Player 1";
+        }
+
+        else if(gameBoard[0][4] == 'X' && gameBoard[2][4] == 'X' && gameBoard[4][4] == 'X') { //V3
+
+            noWinner = false;
+            theWinner = "Player 1";
+        }
+
+        else if(gameBoard[0][0] == 'X' && gameBoard[2][2] == 'X' && gameBoard[4][4] == 'X') { //D1
+
+            noWinner = false;
+            theWinner = "Player 1";
+        }
+
+        else if(gameBoard[0][4] == 'X' && gameBoard[2][2] == 'X' && gameBoard[4][0] == 'X') { //D2
+
+            noWinner = false;
+            theWinner = "Player 1";
+        }
+
+        else if(gameBoard[0][0] == 'O' && gameBoard[0][2] == 'O' && gameBoard[0][4] == 'O') { //H1
+
+            noWinner = false;
+            theWinner = "Player 2";
+        }
+        else if(gameBoard[2][0] == 'O' && gameBoard[2][2] == 'O' && gameBoard[2][4] == 'O') { //H2
+
+            noWinner = false;
+            theWinner = "Player 2";
+        }
+
+        else if(gameBoard[4][0] == 'O' && gameBoard[4][2] == 'O' && gameBoard[4][4] == 'O') { //H3
+
+            noWinner = false;
+            theWinner = "Player 2";
+        }
+
+        else if(gameBoard[0][0] == 'O' && gameBoard[2][0] == 'O' && gameBoard[4][0] == 'O') { //V1
+
+            noWinner = false;
+            theWinner = "Player 2";
+        }
+
+        else if(gameBoard[0][2] == 'O' && gameBoard[2][2] == 'O' && gameBoard[4][2] == 'O') { //V2
+
+            noWinner = false;
+            theWinner = "Player 2";
+        }
+
+        else if(gameBoard[0][4] == 'O' && gameBoard[2][4] == 'O' && gameBoard[4][4] == 'O') { //V3
+
+            noWinner = false;
+            theWinner = "Player 2";
+        }
+
+        else if(gameBoard[0][0] == 'O' && gameBoard[2][2] == 'O' && gameBoard[4][4] == 'O') { //D1
+
+            noWinner = false;
+            theWinner = "Player 2";
+        }
+
+        else if(gameBoard[0][4] == 'O' && gameBoard[2][2] == 'O' && gameBoard[4][0] == 'O') { //D2
+
+            noWinner = false;
+            theWinner = "Player 2";
         }
     }
 }
