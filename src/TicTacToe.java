@@ -22,10 +22,12 @@ public class TicTacToe {
             System.out.println("Player 1, enter your placement (1-9): ");
             int player1Position = input.nextInt();
             playMove(gameBoard, player1Position, "Player 1");
+            checkForWinner(gameBoard);
 
             System.out.println("Player 2, enter your placement (1-9): ");
             int player2Position = input.nextInt();
             playMove(gameBoard, player2Position, "Player 2");
+            checkForWinner(gameBoard);
         }
         System.out.println("The winner is " + theWinner);
     }
