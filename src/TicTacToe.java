@@ -97,8 +97,13 @@ public class TicTacToe {
         printGameBoard(gameBoard);
     }
 
-    //Note: inefficient, does not give wanted results.
     public static void checkForWinner(char[][] gameBoard) {
+
+        /*
+        * H: horizontal line
+        * V: vertical line
+        * D: diagonal line
+        */
 
         if(gameBoard[0][0] == 'X' && gameBoard[0][2] == 'X' && gameBoard[0][4] == 'X') { //H1
 
