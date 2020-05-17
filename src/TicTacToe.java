@@ -15,7 +15,7 @@ public class TicTacToe {
 
         printGameBoard(gameBoard);
 
-        while(noWinner == true) {
+        while(noWinner) {
 
             Scanner input = new Scanner(System.in);
 
