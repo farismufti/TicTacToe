@@ -23,6 +23,9 @@ public class TicTacToe {
             int player1Position = input.nextInt();
             playMove(gameBoard, player1Position, "Player 1");
             checkForWinner(gameBoard);
+            if(!noWinner) {
+                break;
+            }
 
             System.out.println("Player 2, enter your placement (1-9): ");
             int player2Position = input.nextInt();
@@ -110,6 +113,7 @@ public class TicTacToe {
             noWinner = false;
             theWinner = "Player 1";
         }
+
         else if(gameBoard[2][0] == 'X' && gameBoard[2][2] == 'X' && gameBoard[2][4] == 'X') { //H2
 
             noWinner = false;
