@@ -1,3 +1,10 @@
+/*
+* Name: Faris Mufti
+* Description: Text-based TicTacToe game
+* Last Modified: May 17, 2020
+* Notes: No implementation for an invalid input checker or player tie checker yet.
+*/
+
 import java.util.Scanner;
 
 public class TicTacToe {
@@ -23,6 +30,8 @@ public class TicTacToe {
             int player1Position = input.nextInt();
             playMove(gameBoard, player1Position, "Player 1");
             checkForWinner(gameBoard);
+
+            //Breaks loop if player 1 wins
             if(!noWinner) {
                 break;
             }
