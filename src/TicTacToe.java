@@ -1,10 +1,3 @@
-/*
-* Name: Faris Mufti
-* Description: Text-based TicTacToe game
-* Last Modified: June 18, 2020
-* Notes: No implementation for an invalid input checker or player tie checker yet.
-*/
-
 import java.util.Scanner;
 
 public class TicTacToe {
@@ -23,24 +16,40 @@ public class TicTacToe {
         printGameBoard(gameBoard);
         Scanner input = new Scanner(System.in);
 
-        while(noWinner) {
+            while (noWinner) {
 
-            System.out.println("Player 1, enter your placement (1-9): ");
-            int player1Position = input.nextInt();
-            playMove(gameBoard, player1Position, "Player 1");
-            checkForWinner(gameBoard);
+                boolean valid;
 
-            //Breaks loop if player 1 wins
-            if(!noWinner) {
-                break;
+                do {
+                    System.out.print("Player 1, enter your placement (1-9): ");
+                    int player1Position = input.nextInt();
+                    valid = player1Position > 0 && player1Position <= 9;
+                    if(!valid) {
+                        System.err.println("Invalid input. Enter a number from 1-9.");
+                    }
+                    playMove(gameBoard, player1Position, "Player 1");
+                } while(!valid);
+
+                checkForWinner(gameBoard);
+
+                //Breaks loop if player 1 wins
+                if (!noWinner) {
+                    break;
+                }
+
+                do {
+                    System.out.print("Player 2, enter your placement (1-9): ");
+                    int player2Position = input.nextInt();
+                    valid = player2Position > 0 && player2Position <= 9;
+                    if(!valid) {
+                        System.err.println("Invalid input. Enter a number from 1-9.");
+                    }
+                    playMove(gameBoard, player2Position, "Player 2");
+                } while(!valid);
+
+                checkForWinner(gameBoard);
             }
-
-            System.out.println("Player 2, enter your placement (1-9): ");
-            int player2Position = input.nextInt();
-            playMove(gameBoard, player2Position, "Player 2");
-            checkForWinner(gameBoard);
-        }
-        System.out.println("The winner is " + theWinner);
+            System.out.println("The winner is " + theWinner);
     }
 
     public static void printGameBoard(char[][] gameBoard) {
@@ -104,10 +113,6 @@ public class TicTacToe {
             case 9:
                 gameBoard[4][4] = symbol;
                 break;
-
-            default:
-                System.err.println("Invalid input. Please use numbers 1-9.");
-
         }
         printGameBoard(gameBoard);
     }
