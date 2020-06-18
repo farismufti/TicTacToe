@@ -1,7 +1,7 @@
 /*
 * Name: Faris Mufti
 * Description: Text-based TicTacToe game
-* Last Modified: May 17, 2020
+* Last Modified: June 18, 2020
 * Notes: No implementation for an invalid input checker or player tie checker yet.
 */
 
@@ -21,10 +21,9 @@ public class TicTacToe {
                               {' ', '|', ' ', '|', ' '}};
 
         printGameBoard(gameBoard);
+        Scanner input = new Scanner(System.in);
 
         while(noWinner) {
-
-            Scanner input = new Scanner(System.in);
 
             System.out.println("Player 1, enter your placement (1-9): ");
             int player1Position = input.nextInt();
@@ -105,6 +104,10 @@ public class TicTacToe {
             case 9:
                 gameBoard[4][4] = symbol;
                 break;
+
+            default:
+                System.err.println("Invalid input. Please use numbers 1-9.");
+
         }
         printGameBoard(gameBoard);
     }
@@ -170,6 +173,7 @@ public class TicTacToe {
             noWinner = false;
             theWinner = "Player 2";
         }
+
         else if(gameBoard[2][0] == 'O' && gameBoard[2][2] == 'O' && gameBoard[2][4] == 'O') { //H2
 
             noWinner = false;
