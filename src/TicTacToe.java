@@ -18,18 +18,20 @@ public class TicTacToe {
 
             while (noWinner) {
 
-                boolean valid;
+                int player1Position;
+                int player2Position;
+                boolean validInput;
 
                 do {
-                    System.out.print("Player 1, enter your placement (1-9): ");
-                    int player1Position = input.nextInt();
-                    valid = player1Position > 0 && player1Position <= 9;
-                    if(!valid) {
+                    System.out.print("\nPlayer 1, enter your placement (1-9): ");
+                    player1Position = input.nextInt();
+                    validInput = player1Position > 0 && player1Position <= 9;
+                    if(!validInput) {
                         System.err.println("Invalid input. Enter a number from 1-9.");
                     }
-                    playMove(gameBoard, player1Position, "Player 1");
-                } while(!valid);
+                } while(!validInput);
 
+                playMove(gameBoard, player1Position, "Player 1");
                 checkForWinner(gameBoard);
 
                 //Breaks loop if player 1 wins
@@ -38,15 +40,15 @@ public class TicTacToe {
                 }
 
                 do {
-                    System.out.print("Player 2, enter your placement (1-9): ");
-                    int player2Position = input.nextInt();
-                    valid = player2Position > 0 && player2Position <= 9;
-                    if(!valid) {
+                    System.out.print("\nPlayer 2, enter your placement (1-9): ");
+                    player2Position = input.nextInt();
+                    validInput = player2Position > 0 && player2Position <= 9;
+                    if(!validInput) {
                         System.err.println("Invalid input. Enter a number from 1-9.");
                     }
-                    playMove(gameBoard, player2Position, "Player 2");
-                } while(!valid);
+                } while(!validInput);
 
+                playMove(gameBoard, player2Position, "Player 2");
                 checkForWinner(gameBoard);
             }
             System.out.println("The winner is " + theWinner);
