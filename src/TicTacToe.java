@@ -68,7 +68,7 @@ public class TicTacToe {
 
     public static void playMove(char[][] gameBoard, int position, String player) {
 
-        char symbol = ' ';
+        char symbol;
         if(player.equals("Player 1")) {
 
             symbol = 'X';
