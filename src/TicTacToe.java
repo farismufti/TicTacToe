@@ -5,7 +5,7 @@ public class TicTacToe {
     static boolean noWinner = true;
     static String theWinner = "";
 
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) {
 
         char[][] gameBoard = {{' ', '|', ' ', '|', ' '},
                               {'-', '+', '-', '+', '-'},
