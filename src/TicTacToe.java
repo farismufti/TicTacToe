@@ -1,3 +1,5 @@
+////test
+
 import java.util.Scanner;
 
 public class TicTacToe {
@@ -5,7 +7,7 @@ public class TicTacToe {
     static boolean noWinner = true;
     static String theWinner = "";
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 
         char[][] gameBoard = {{' ', '|', ' ', '|', ' '},
                               {'-', '+', '-', '+', '-'},
